@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block header %}
-    <h1>{% block title %}Posts{% endblock %}</h1>
+    <h1>{% block title %}Movies{% endblock %}</h1>
     {% if g.user %}
         <a class="action" href="{{ url_for('blog.create') }}">New</a>
     {% endif %}
@@ -25,13 +25,27 @@
             <hr>
         {% endif %}
     {% endfor %}
+
     <table>
         <tr>
             {% for image in img %}
                 {% if loop.index <= 5 %}
-                    <th><img src="{{ url_for('static', filename=image) }}"></th>
+                        <th>
+                            <a href="{{ image['image'] }}"><img src="{{ image['image'] }}" alt="url_for('static', filename=images/movenotfound)"width="125" height="150"></a>
+                        </th>
                 {% endif %}
-                {{ loop.index }}
             {% endfor %}
         </tr>
+        <tr>
+            {% for image in img %}
+                <td>{{ image['name'] }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for image in img %}
+                <td>temp desc</td>
+            {% endfor %}
+        </tr>
+
+    </table>
 {% endblock %}

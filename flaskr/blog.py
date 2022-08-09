@@ -15,7 +15,8 @@ def index():
         ' FROM post p JOIN user u ON p.author_id = u.id'
         ' ORDER BY created DESC'
     ).fetchall()
-    return render_template('blog/index.html', posts=posts)
+    image = get_movie_image()
+    return render_template('blog/index.html', posts=posts, img=image)
 
 @bp.route('/create', methods=('GET', 'POST'))
 @login_required
@@ -86,3 +87,6 @@ def delete(id):
     db.execute('DELETE FROM post WHERE id = ?', (id,))
     db.commit()
     return redirect(url_for('blog.index'))
+
+def get_movie_image():
+    return (['images/movenotfound.png'])

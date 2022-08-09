@@ -34,6 +34,8 @@ def create_app(test_config=None):
     from . import blog
     app.register_blueprint(blog.bp)
     app.add_url_rule('/', endpoint='index')
-    # app.register_blueprint(ratemovies.bp)
+
+    from . import movies
+    app.register_blueprint(movies.bp)
 
     return app
