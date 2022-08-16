@@ -2,7 +2,7 @@
 {% block header %}
     <h1>{% block title %}Movies{% endblock %}</h1>
     {% if g.user %}
-        <a class="action" href="{{ url_for('blog.create') }}">New</a>
+        <a class="action" href="{{ url_for('movies.recommend') }}">Get Recommendations</a>
     {% endif %}
 {% endblock %}
 
@@ -31,7 +31,7 @@
             {% for image in img %}
                 {% if loop.index <= 5 %}
                         <th>
-                            <a href="{{ image['image'] }}"><img src="{{ image['image'] }}" alt="url_for('static', filename=images/movenotfound)"width="125" height="150"></a>
+                            <a href="{{ image['image'] }}"><img src="{{ image['image'] }}" alt="{{ url_for('static', filename='images/movenotfound') }}"width="125" height="150"></a>
                         </th>
                 {% endif %}
             {% endfor %}

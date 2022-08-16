@@ -76,6 +76,46 @@ nav ul li a, nav ul li span, header .action {
   border: 1px solid #377ba8;
 }
 
+.by-item {
+  column-count: 5;
+  column-gap:  21px;
+  column-rule-style: solid;
+}
+
+.by-item > p {
+  background: lightgray;
+  margin-top: 0px;
+}
+
+.by-item > header h1 {
+  text-align: center;
+  column-span:  all;
+}
+
+.media-container {
+  display: inline-grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap:  3%;
+}
+
+.media-container  .item {
+  margin-bottom:  20px;
+  background-color:  grey;
+  display:  inline-block;
+}
+
+.media-container  .item img {
+  width:  100%;
+  opacity:  0;
+}
+
+.media-container-header{
+  position:   sticky;
+  top: 0px;
+  grid-area: header;
+  background-color: lightgray;
+}
+
 .post > header {
   display: flex;
   align-items: flex-end;

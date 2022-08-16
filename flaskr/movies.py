@@ -20,6 +20,12 @@ def index():
     image = get_movie_image()
     return render_template('movies/index.html', img=image)
 
+@bp.route('/recommend', methods=('GET', 'POST'))
+def recommend():
+    if request.method == 'POST':
+        pass 
+    else:
+        return render_template('movies/recommend.html')
 
 def get_movie_image():
     lists = get_data()
